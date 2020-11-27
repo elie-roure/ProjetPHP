@@ -18,13 +18,22 @@ html{
 
 body>div{
 	text-align: center;
+	display: grid;
+	grid-template-columns: 20% 20% 20%;
 }
 
 nav>p{
 	flex-direction: row;
 	display: inline-flex;
-	margin-right:1em; 
+	margin: 1em;
 	padding: 3px; 
 	border:2px black solid;
+
+}
+nav{
+	align-items: center;
 }
 
+a:hover{
+	color: white;
+}

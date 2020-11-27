@@ -1,7 +1,13 @@
 
+<?php  
+    $login_action = (isset($_SESSION['login']) ? "deconnect" 	: "connect"	);
+    $login_label  = (isset($_SESSION['login']) ? "Déconnexion" 	: "Connexion"	);
+?>
+
 <!DOCTYPE html>
 
 <html>
+
 
 <head>
     <title><?php echo $pagetitle; ?></title>
@@ -16,6 +22,7 @@
     <nav>
        <p><a href = index.php?action=readAll > Accueil</a></p>
        <p><a href = index.php?action=readAll> Tout les utilisateurs (admin)</a></p>
+       <p><a href="index.php?action=<?=$login_action?>&controller=utilisateur"><?=$login_label?></a></p> 
     </nav>
 </header>
 <div>
