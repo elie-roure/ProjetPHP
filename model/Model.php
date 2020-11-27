@@ -80,7 +80,7 @@ class Model {
     public static function update($data){
          $table_name = static::$object;
          $primary_key = static::$primary;
-         $sql = "UPDATE $table_name SET";
+         $sql = "UPDATE " . ucfirst($table_name) ." SET";
          foreach ($data as $cle => $valeur){
              if ($cle != "primary"){
              $sql = $sql." $cle =:$cle,";

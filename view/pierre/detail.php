@@ -7,7 +7,7 @@
                         "<li> Volume : "  . htmlspecialchars($p->getVolume()) . "</li>" .
                         "<li> Provenance : "  . htmlspecialchars($p->getPaysProvenance()) . "</li>".
                         "<p> Cette pierre  est au prix de " . htmlspecialchars($p->getPrix()) . "." .
-                '<br><a href = "index.php?action=update&controller=trajet&id="' . rawurlencode($p->getIdPierre()) . '> Mettre à jour le trajet </a>';
+                '<br><a href = "index.php?action=update&controller=pierre&idpierre=' . rawurlencode($p->getIdPierre()) . '"> Mettre à jour le produit </a>';
                 
              
 
