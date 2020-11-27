@@ -1,3 +1,30 @@
-body{
-	background-color: blue;
+
+header{
+	background-color: #A9E0E7;
 }
+
+body>div{
+	
+	background: linear-gradient(#A9E0E7, #41D2E7);
+}
+
+footer{
+	background-color: #41D2E7;
+}
+
+html{
+	background-color: #00CBE7;
+}
+
+body>div{
+	text-align: center;
+}
+
+nav>p{
+	flex-direction: row;
+	display: inline-flex;
+	margin-right:1em; 
+	padding: 3px; 
+	border:2px black solid;
+}
+

@@ -1,8 +1,4 @@
-<!DOCTYPE html>
 
-<html>
-    
-    <body>
         <?php
         
 
@@ -11,6 +7,4 @@
         require_once "{$ROOT_FOLDER}$DS". "lib" . "$DS" . "File.php";
         require_once File::build_path(array("controller", "routeur.php"));
         ?>
-    </body>
-</html>
 

@@ -4,8 +4,8 @@ require_once File::build_path(array("model", "Model.php"));
 
 class ModelPierre extends Model{
     private $idPierre;
-    private $idType
-;    private $idForme;
+    private $idType;
+    private $idForme;
     private $nom;
     private $prix;
     private $poids;
