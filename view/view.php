@@ -14,6 +14,7 @@
             <li style="display:inline; margin-right:1em; padding: 3px; border:2px black solid"><a href = index.php?action=readAll> Tout les utilisateurs (admin)</a></li>
             <li style="display:inline; margin-right:1em; padding: 3px; border:2px black solid"><a href = index.php?action=readAll> Tout les utilisateurs (admin)</a></li>
             <li style="display:inline; margin-right:1em; padding: 3px; border:2px black solid"><a href="index.php?action=<?=$login_action?>&controller=utilisateur"><?=$login_label?></a></li>
+            <li style="display:inline; margin-right:1em; padding: 3px; border:2px black solid"><?= (!isset($_SESSION['login']) ? '<a href="index.php?action=create&controller=utilisateur">Inscription</a>' : "")?></li>
             </ul>
             </nav>
             </head>
