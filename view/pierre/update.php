@@ -5,11 +5,11 @@
     <form method="get" action="index.php" controller="pierre">
         <fieldset>
             <legend>Informations produit :</legend>
-            <p> 
+            <p>  
                 <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
                 <label for="pierre_id">Id Produit</label> :
                 <input type="int" <?php echo "value=\"" . htmlspecialchars($idPierre) . "\"" ?> name="idPierre" id="pierre_id" <?php echo "$form=\"" . htmlspecialchars($idPierre) . "\"" ?>/>
-            </p>
+            </p> 
             <p>
                 <label for="nom">Nom</label> :
                 <input type="text" <?php echo "value=\"" . htmlspecialchars($nom) . "\"" ?> name="nom" id="nom_id" required/>

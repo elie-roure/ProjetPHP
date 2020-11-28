@@ -35,7 +35,7 @@ class ControllerPierre {
         $poids = "";
         $volume = "";
         $paysProvenance="";
-        $form = "required";
+        $form = "readonly";
         $act = "created";
         $pagetitle='Nouveau produit';
         $controller='pierre';
@@ -45,7 +45,7 @@ class ControllerPierre {
     
     public static function created() {
         $data = array(
-            "idPierre" => $_GET["idPierre"],
+            
             "nom" => $_GET["nom"],
             "prix" => $_GET["prix"],
             "poids" => $_GET["poids"],
@@ -53,7 +53,7 @@ class ControllerPierre {
             "paysProvenance"=>$_GET["paysProvenance"],
         );
         
-            $p = new ModelPierre($_GET["idPierre"], $_GET["nom"], $_GET["prix"], $_GET["poids"], $_GET["volume"], $_GET["paysprovenance"]);
+            $p = new ModelPierre($_GET["nom"], $_GET["prix"], $_GET["poids"], $_GET["volume"], $_GET["paysProvenance"]);
             ModelPierre::save($data);
             $tab_p = ModelPierre::selectAll();
             $controller = ('pierre');
@@ -109,6 +109,25 @@ class ControllerPierre {
         $controller="pierre";
         $view = 'updated';
         require (File::build_path(array("view", "view.php")));
+    }
+    
+    public static function delete() {
+
+        $tab_p = ModelPierre::selectAll();     //appel au modèle pour gerer la BD
+        $idPierre = $_GET["idPierre"];
+        $p = ModelPierre::select($idPierre);
+        if ($p == null) {
+            $pagetitle = 'Erreur produit';
+            $controller = ('pierre');
+            $view = 'error';
+            require (File::build_path(array("view", "view.php")));
+        } else {
+            ModelPierre::delete($idPierre);
+            $controller = ('pierre');
+            $view = 'delete';
+            $pagetitle = 'Suppression de produit';
+            require (File::build_path(array("view", "view.php")));
+        }
     }
     
     
