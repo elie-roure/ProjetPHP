@@ -100,26 +100,23 @@ class Model {
         }
     }
 
-    public static function save($data) {
-        $table_name = static::$object;
-        try {
-            $sql = "INSERT INTO " . ucfirst($table_name) . "(";
-            foreach ($data as $cle => $valeur) {
-                $sql = $sql . $cle . ",";
+        public static function save($data) {
+            $table_name = static::$object;
+            $sql = "INSERT INTO $table_name VALUES(";
+            foreach($data as $cle => $valeur){
+                $sql = $sql.":$cle,";
             }
-            $sql = rtrim($sql, ",") . ") VALUES (";
-            foreach ($data as $cle => $valeur) {
-                $sql = $sql . "'$valeur',";
-            }
-            $sql = rtrim($sql, ",") . ")";
+            try{
+            $sql = rtrim($sql,",").");";
             $req_prep = Model::$pdo->prepare($sql);
-            $values = array(
-            );
-            $req_prep->execute($values);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
+            $req_prep->execute($data);
+            }
+            catch (Exception $ex){
+                echo $ex->getMessage();
+            }
+            
+            
         }
-    }
 
 }
 
