@@ -49,20 +49,24 @@
 	}
         
         public static function checkPassword($login,$mot_de_passe_hache){
-            $sql ="SELECT * FROM Utilisateur 
-                WHERE login = :login";
-            $req_prep = Model::$pdo->prepare($sql);
-            $values = array (
-                "login" => $login,
-            );
-            $req_prep->execute($values);
-            $row = $req_prep->fetch(PDO::FETCH_ASSOC);
-            
-            if ($mot_de_passe_hache == $row["mdp"]){
-                return true;
-            }
-            else {
-                return false;
+            try{
+                $sql ="SELECT * FROM Utilisateur 
+                    WHERE login = :login";
+                $req_prep = Model::$pdo->prepare($sql);
+                $values = array (
+                    "login" => $login,
+                );
+                $req_prep->execute($values);
+                $row = $req_prep->fetch(PDO::FETCH_ASSOC);
+
+                if ($mot_de_passe_hache == $row["mdp"]){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            } catch (Exception $ex){
+                    echo $ex->getMessage();
             }
             
         }
@@ -76,6 +80,27 @@
                 return false;
             }
         }
+        
+        public static function loginExist($login){
+            try{
+                $sql = "SELECT COUNT(*) FROM Utilisateur WHERE login = :login";
+                $req_prep = Model::$pdo->prepare($sql);
+                $values = array (
+                    "login" => $login,
+                );
+                $req_prep->execute($values);
+                $nombre = $req_prep->fetchColumn();
+                if ($nombre == 1){
+                    return true;
+                }
+                else { 
+                    return false;}
+            } catch (Exception $ex) {
+                    echo $ex->getMessage();
+            }
+           
+            
+        } 
 
 
         

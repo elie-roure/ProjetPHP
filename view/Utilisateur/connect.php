@@ -1,16 +1,19 @@
+<?php 
+    if ($falsemdp){
+        $loginlabel = $login;
+        $mdplabel = $mdp;
+    }
+?>
+
 <html>
     <body>
-        <form method="get" action="index.php?">
+        <form method="post" action="index.php?controller=utilisateur&action=connected">
             <fieldset>
                 <legend>Connexion</legend>
-                <input type="hidden" name="action" value="connected">
-                <input type="hidden" name="controller" value="utilisateur">
-                <p> Login :
-                <input type="text" name="login" required>
-                </p>
-                <p> Mot de passe :
-                <input type="password" name="mdp" required>
-                </p>
+                <label for="loginid">Login</label>
+                <input type="text" name="login" value="<?= $falsemdp ? $loginlabel : "" ?>" required id="loginid"><br/>
+                <label for="mdpid">Mot de passe</label>
+                <input type="password" name="mdp" required value="<?= $falsemdp ? $mdplabel : "" ?>" id="mdpid"><br/>
                 <input type="submit" value="Connexion" />
             </fieldset>
         </form>
