@@ -9,17 +9,41 @@ body>div{
 }
 
 footer{
+    text-align: right;
 	background-color: #41D2E7;
+        border: 1px solid black;
+        padding: 0px;
+        margin-top: 1%;
+        
 }
 
 html{
 	background-color: #00CBE7;
 }
 
-body>div{
-	text-align: center;
-	display: grid;
-	grid-template-columns: 20% 20% 20%;
+.produit{
+        margin-top: 1%;
+        position:relative;
+        text-align:center;
+        float:left;
+        width: 33%;
+        height: 375px;
+        border: 1px solid;
+        
+        vertical-align:middle;
+}
+
+.picture {
+    
+    display: table;
+    padding: 5%;
+    margin: 5%;
+    margin-left: 27%;
+    border: 1px solid;
+}
+
+.produit>a{
+    font-size: 1.2em;
 }
 
 nav>p{
@@ -32,8 +56,49 @@ nav>p{
 }
 nav{
 	align-items: center;
+        background-color: #80afc4;
+        
+        
 }
 
 a:hover{
 	color: white;
 }
+
+
+
+
+.precision{
+    margin: 2%;
+    margin-left: 3%;
+    padding-top: 10px;
+    text-align: left;
+    
+    
+    
+}
+.precision>li{
+    list-style-type: none;
+    padding-left: 0px;
+    
+}
+
+form{
+    text-align: left;
+    width: 33%;
+    
+    margin: 1%;
+    margin-left: 3%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.ajout{
+    background-color: grey;
+    
+}
+
