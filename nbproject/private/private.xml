@@ -7,16 +7,20 @@
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/updated.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/controller/ControllerPierre.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/model/Model.php</file>
+            <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/controller/ControllerUtilisateur.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/view.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/update.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/list.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/error.php</file>
+            <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/model/ModelUtilisateur.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/lib/File.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/config/Conf.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/controller/routeur.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/index.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/model/ModelPierre.php</file>
             <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/created.php</file>
+            <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/view/pierre/delete.php</file>
+            <file>file:/C:/xampp/htdocs/Projet-Php/ProjetPHP/style.css</file>
         </group>
     </open-files>
 </project-private>
