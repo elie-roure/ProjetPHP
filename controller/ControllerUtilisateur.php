@@ -110,15 +110,15 @@ class ControllerUtilisateur {
         }
     
         public static function created(){
-            if ($_GET["mdp"] == $_GET["mdpconfirm"]){
+            if ($_POST["mdp"] == $_POST["mdpconfirm"]){
                 $data = array (
-                    'primary' => $_GET["login"],
-                    'nom' => $_GET["Nom"],
-                    'prenom' => $_GET["Prenom"],
-                    'mdp' => Security::hacher($_GET['mdp']),
+                    'primary' => $_POST["login"],
+                    'nom' => $_POST["Nom"],
+                    'prenom' => $_POST["Prenom"],
+                    'mdp' => Security::hacher($_POST['mdp']),
                     'admin' => ""    
                     );
-                if (isset($_GET["admin"]) && $_GET["admin"] == 1 && Session::is_admin()){
+                if (isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()){
                     $data["admin"] = 1;
                 }
                 ModelUtilisateur::save($data);
@@ -136,6 +136,7 @@ class ControllerUtilisateur {
     }
     
         public static function connect(){
+            $falsemdp = false;
             $controller = 'utilisateur';
             $view = 'connect';
             $pagetitle="Connexion";
@@ -143,9 +144,9 @@ class ControllerUtilisateur {
         }
     
         public static function connected(){
-            if (ModelUtilisateur::checkPassword($_GET["login"], Security::hacher($_GET["mdp"]))){
-                $_SESSION["login"] = $_GET["login"];
-                if (ModelUtilisateur::isAdmin($_GET["login"])){
+            if (ModelUtilisateur::loginExist($_POST["login"]) && ModelUtilisateur::checkPassword($_POST["login"], Security::hacher($_POST["mdp"]))){
+                $_SESSION["login"] = $_POST["login"];
+                if (ModelUtilisateur::isAdmin($_POST["login"])){
                     $_SESSION["admin"] = true;
                 }
                 else {
@@ -154,7 +155,7 @@ class ControllerUtilisateur {
                 $controller = 'utilisateur';
                 $view = 'connected';
                 $pagetitle="Profil";
-                $v = ModelUtilisateur::select($_GET["login"]);
+                $v = ModelUtilisateur::select($_POST["login"]);
                 require File::build_path(array('view','view.php'));
             }
             else {
