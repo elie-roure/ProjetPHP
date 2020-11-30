@@ -12,6 +12,16 @@
 		private $nom;
 		private $prenom;
                 private $mdp;
+                private $email;
+                private $nonce;
+                
+        public function getNonce(){
+                return $this->nonce;
+        }        
+        
+        public function getEmail(){
+                return $this->email;
+        }
 
 	public function getLogin(){
 		return $this->login;
@@ -40,6 +50,10 @@
 	public function setPrenom($prenom2){
 		$this->prenom = $prenom2;
 	}
+        
+        public function setNonce($nonce){
+                $this->nonce = $nonce;
+        }
 
 	public function afficher(){
 		return "<ul>Utilisateur : </br></br>
@@ -101,6 +115,21 @@
            
             
         } 
+        
+        public function updateNonce($nonce){
+            try {
+                $sql = "UPDATE Utilisateur SET nonce = :nonce WHERE login = :login";
+                $req_prep = Model::$pdo->prepare($sql);
+                $values = array (
+                    "nonce" => $nonce,
+                    "login" => $this->getLogin()
+                );
+                $req_prep->execute($values);
+                $this->setNonce($nonce);
+            } catch (Exception $ex) {
+                echo $ex->getMessage();
+            }
+        }
 
 
         
