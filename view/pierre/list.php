@@ -12,7 +12,7 @@ foreach ($tab_p as $p){
     echo '<div class="produit">
             <a href= "index.php?action=read&idpierre=' . $id . '"><strong>' . $nom . " : " . $prix . "€</strong></a>" .
      ' <div class ="picture">
-            <br><a href= "index.php?action=read&idpierre=' . $id . '"><img src="' . $link . '"alt="id' . $id . '" height=200px width=200px/></a>
+            <br><a class="lienP" href= "index.php?action=read&idpierre=' . $id . '"><img class="imgP"src="' . $link . '"alt="id' . $id . '" height=200px width=200px/></a>
                 </div>
         </div>';
     
@@ -25,7 +25,7 @@ foreach ($tab_p as $p){
 
 <?php
 
-echo '<br><a href="index.php?action=create" class="ajout"> Vous souhaiter mettre une pierre en vente ? </a>';
+echo '<br><a class="addP" href="index.php?action=create" class="ajout"> Vous souhaiter mettre une pierre en vente ? </a>';
 ?>
         
 

@@ -22,6 +22,7 @@ html{
 }
 
 .produit{
+    display: flex;
         margin-top: 1%;
         position:relative;
         text-align:center;
@@ -35,11 +36,32 @@ html{
 
 .picture {
     
-    display: table;
+    display: flex;
     padding: 5%;
     margin: 5%;
     margin-left: 27%;
     border: 1px solid;
+}
+.picture>img{
+    max-width : 100%;
+    min-width : 0%;
+    heigth: auto;
+    width: auto;
+    display: flex;
+
+
+}
+.lienP{
+    display: flex;
+    margin: 1em;
+    padding: 3px;
+    border:2px black solid;
+}
+.imgP{
+    max-width : 100%;
+    heigth: auto;
+    width: auto;
+    display: flex;
 }
 
 .produit>a{
@@ -101,4 +123,5 @@ form{
     background-color: grey;
     
 }
+
 
