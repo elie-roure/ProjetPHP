@@ -7,6 +7,7 @@
             $prenom = $_POST["Prenom"];
             $mdp = $_POST["mdp"];
             $mdpconfirm = $_POST["mdpconfirm"];
+            $email = $_POST["email"];
             $nom = $_POST["Nom"];
             require_once("update.php");
         ?>

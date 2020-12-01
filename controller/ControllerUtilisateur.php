@@ -69,6 +69,7 @@ class ControllerUtilisateur {
                 $v = ModelUtilisateur::select($login);
                 $prenom = $v->getPrenom();
                 $nom = $v->getNom();
+                $email = $v->getEmail();
                 $pagetitle = 'Mise à jour utilisateur';
                 $controller = 'utilisateur';
                 $view = 'update';
@@ -81,15 +82,15 @@ class ControllerUtilisateur {
         }
     
         public static function updated(){
-            if (Session::is_user($_GET["login"]) || Session::is_admin()){
-                if ($_GET["mdp"] == $_GET["mdpconfirm"]){
+            if (Session::is_user($_POST["login"]) || Session::is_admin()){
+                if ($_POST["mdp"] == $_POST["mdpconfirm"]){
                     $data = array (
-                        'primary' => $_GET["login"],
-                        'nom' => $_GET["Nom"],
-                        'prenom' => $_GET["Prenom"],
-                        'mdp' => Security::hacher($_GET['mdp'])
+                        'primary' => $_POST["login"],
+                        'nom' => $_POST["Nom"],
+                        'prenom' => $_POST["Prenom"],
+                        'mdp' => Security::hacher($_POST['mdp'])
                         );
-                    if(isset($_GET["admin"]) && $_GET["admin"] == 1 && Session::is_admin()) {
+                    if(isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()) {
                         $data["admin"] = 1;
                     }
                     ModelUtilisateur::update($data);
@@ -126,7 +127,7 @@ class ControllerUtilisateur {
                 }
                 ModelUtilisateur::save($data);
                 $user =  ModelUtilisateur::select($_POST["login"]);
-                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $user->getLogin() . "&nonce=" . $user->getNonce() ."\"</p>";
+                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $user->getLogin() . "&nonce=" . $user->getNonce() ."\">lien</a></p>";
                 mail($user->getEmail(), 'Validation Email pour StoneZone', $mail);
                 $controller = 'utilisateur';
                 $view = 'created';
