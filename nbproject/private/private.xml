@@ -5,11 +5,14 @@
         <group>
             <file>file:/C:/xampp/htdocs/ProjetPHP/lib/Security.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/model/ModelUtilisateur.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/config/Conf.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/notvalidated.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/controller/routeur.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/style.css</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/list.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/updated.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/connect.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/controller/ControllerPierre.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/index.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/model/ModelPierre.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/view.php</file>
@@ -23,6 +26,7 @@
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/mdp.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/lib/Session.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/list.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/validated.php</file>
         </group>
     </open-files>
 </project-private>

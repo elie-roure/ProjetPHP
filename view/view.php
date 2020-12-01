@@ -24,8 +24,9 @@
        <p><a href = index.php?action=readAll > Accueil</a></p>
        
        <p><a href="index.php?action=<?=$login_action?>&controller=utilisateur"><?=$login_label?></a></p> 
-       <p><?= (!isset($_SESSION['login']) ? '<a href="index.php?action=create&controller=utilisateur">Inscription</a>' : "")?></p>
-       <p><a href = index.php?action=readAll> Tout les utilisateurs (admin)</a></p>
+       <?= (!isset($_SESSION['login']) ? '<p><a href="index.php?action=create&controller=utilisateur">Inscription</a></p>' : "")?>
+       <?= (isset($_SESSION['login']) ? "<p><a href=\"index.php?action=read&controller=utilisateur&login=" . $_SESSION["login"] . "\">Profil</a></p>" : "")?>
+       <?= (Session::is_admin()) ? "<p><a href =\"index.php?action=readAll&controller=utilisateur\">Tous les utilisateurs (admin)</a></p>" : ""?>
     </nav>
 </header>
 <div>
