@@ -54,6 +54,7 @@ class ControllerUtilisateur {
             $login = '';
             $prenom = '';
             $nom = '';
+            $email = '';
             $create = true;
             $controller = 'utilisateur';
             $view = 'update';
@@ -68,6 +69,7 @@ class ControllerUtilisateur {
                 $v = ModelUtilisateur::select($login);
                 $prenom = $v->getPrenom();
                 $nom = $v->getNom();
+                $email = $v->getEmail();
                 $pagetitle = 'Mise à jour utilisateur';
                 $controller = 'utilisateur';
                 $view = 'update';
@@ -80,15 +82,15 @@ class ControllerUtilisateur {
         }
     
         public static function updated(){
-            if (Session::is_user($_GET["login"]) || Session::is_admin()){
-                if ($_GET["mdp"] == $_GET["mdpconfirm"]){
+            if (Session::is_user($_POST["login"]) || Session::is_admin()){
+                if ($_POST["mdp"] == $_POST["mdpconfirm"]){
                     $data = array (
-                        'primary' => $_GET["login"],
-                        'nom' => $_GET["Nom"],
-                        'prenom' => $_GET["Prenom"],
-                        'mdp' => Security::hacher($_GET['mdp'])
+                        'primary' => $_POST["login"],
+                        'nom' => $_POST["Nom"],
+                        'prenom' => $_POST["Prenom"],
+                        'mdp' => Security::hacher($_POST['mdp'])
                         );
-                    if(isset($_GET["admin"]) && $_GET["admin"] == 1 && Session::is_admin()) {
+                    if(isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()) {
                         $data["admin"] = 1;
                     }
                     ModelUtilisateur::update($data);
@@ -110,18 +112,23 @@ class ControllerUtilisateur {
         }
     
         public static function created(){
-            if ($_POST["mdp"] == $_POST["mdpconfirm"]){
+            if ($_POST["mdp"] == $_POST["mdpconfirm"] && filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
                 $data = array (
                     'primary' => $_POST["login"],
                     'nom' => $_POST["Nom"],
                     'prenom' => $_POST["Prenom"],
                     'mdp' => Security::hacher($_POST['mdp']),
+                    'email' => $_POST["email"],
+                    'nonce' => Security::generateRandomHex(),
                     'admin' => ""    
                     );
                 if (isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()){
                     $data["admin"] = 1;
                 }
                 ModelUtilisateur::save($data);
+                $user =  ModelUtilisateur::select($_POST["login"]);
+                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $user->getLogin() . "&nonce=" . $user->getNonce() ."\">lien</a></p>";
+                mail($user->getEmail(), 'Validation Email pour StoneZone', $mail);
                 $controller = 'utilisateur';
                 $view = 'created';
                 $tab_v = ModelUtilisateur::selectAll();
@@ -144,7 +151,7 @@ class ControllerUtilisateur {
         }
     
         public static function connected(){
-            if (ModelUtilisateur::loginExist($_POST["login"]) && ModelUtilisateur::checkPassword($_POST["login"], Security::hacher($_POST["mdp"]))){
+            if (ModelUtilisateur::loginExist($_POST["login"]) && ModelUtilisateur::checkPassword($_POST["login"], Security::hacher($_POST["mdp"])) && ModelUtilisateur::select($_POST["login"])->getNonce() == NULL){
                 $_SESSION["login"] = $_POST["login"];
                 if (ModelUtilisateur::isAdmin($_POST["login"])){
                     $_SESSION["admin"] = true;
@@ -175,5 +182,22 @@ class ControllerUtilisateur {
             
             
         }
+        
+       public static function validate(){
+           if (ModelUtilisateur::loginExist($_GET["login"]) && ModelUtilisateur::select($_GET["login"])->getNonce() == $_GET["nonce"]){
+               $v = ModelUtilisateur::select($_GET["login"]);
+               $v->updateNonce("NULL"); 
+               $controller = "utilisateur";
+               $view = "validated";
+               $pagetitle = "Validation compte";
+               require File::build_path(array('view','view.php'));
+           }
+           else {
+               $controller = "utilisateur";
+               $view = "notvalidated";
+               $pagetitle = "Validation compte";
+               require File::build_path(array('view','view.php'));
+           }
+       }
 }
 ?>

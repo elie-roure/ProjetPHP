@@ -22,6 +22,7 @@ html{
 }
 
 .produit{
+        display: table;
         margin-top: 1%;
         position:relative;
         text-align:center;
@@ -101,4 +102,5 @@ form{
     background-color: grey;
     
 }
+
 

@@ -24,13 +24,15 @@
               <label for="prenom_id">Prénom</label> :
               <input type="text" placeholder="Ex : Paul" value="<?= htmlspecialchars($prenom)?>"    name="Prenom" id="prenom_id" required/>
             </p>
+            <p>
+              <label for="email_id">Mail</label> :
+              <input type="email" placeholder="Ex : jean66@gmail.com" value="<?=  htmlspecialchars($email)?>" name="email" id="email_id" required/>
+            </p>
             <?= (Session::is_admin() ? '<label for="imput_admin">Admin</label><br/><input type="checkbox" name="admin" value="1" id="imput_admin">' : "")?>
             <p>
-              <input type="submit" value="Envoyer" />
+                <input type="submit" value="<?= $create ? "S'inscrire" : "Mettre à jour"?>" />
             </p>
           </fieldset>
         </form>
-
-
     </body>
 </html>
