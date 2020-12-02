@@ -31,7 +31,7 @@ class ControllerUtilisateur {
     }
     
         public static function delete(){
-            if (Session::is_user($_GET["login"])){
+            if (Session::is_user($_GET["login"]) || Session::is_admin()){
                 $login = $_GET["login"];
                 try {
                     ModelUtilisateur::delete($login);
@@ -126,15 +126,17 @@ class ControllerUtilisateur {
                     $data["admin"] = 1;
                 }
                 ModelUtilisateur::save($data);
-                $user =  ModelUtilisateur::select($_POST["login"]);
-                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $user->getLogin() . "&nonce=" . $user->getNonce() ."\">lien</a></p>";
-                mail($user->getEmail(), 'Validation Email pour StoneZone', $mail);
+                $v =  ModelUtilisateur::select($_POST["login"]);
+                $_SESSION["login"] = $v->getlogin();
+                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $v->getLogin() . "&nonce=" . $v->getNonce() ."\">lien</a></p>";
+                mail($v->getEmail(), 'Validation Email pour StoneZone', $mail);
+                $pagetitle = 'Profil';
                 $controller = 'utilisateur';
-                $view = 'created';
-                $tab_v = ModelUtilisateur::selectAll();
+                $view = 'detail';
                 require File::build_path(array('view','view.php'));
         }
         else {
+            $pagetitle = "Erreur d'inscription";
             $controller = 'utilisateur';
             $view = 'mdp';
             $tab_v = ModelUtilisateur::selectAll();

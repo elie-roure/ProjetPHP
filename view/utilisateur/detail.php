@@ -4,6 +4,10 @@
         <?php
         $login_label = $v->getLogin();
         
+        if (isset($_GET["action"]) && $_GET["action"] == "created"){
+            echo 'Votre inscription a été réalisée <br/><br/>';
+        }
+        
         $update = "<a href=\"index.php?controller=utilisateur&action=update&login=".rawurlencode($login_label)."\">Mettre à jour</a>";
         $delete = "<a href=\"index.php?controller=utilisateur&action=delete&login=".rawurlencode($login_label)."\">Supprimer l'utilisateur</a>";
             echo
