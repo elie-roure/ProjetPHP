@@ -1,6 +1,5 @@
 <html>
     <body>
-        <p>Votre utilisateur a bien été créée !</p>
-        <?php require_once "list.php"?>
+        <?php require_once "detail.php"?>
     </body>
 </html>
