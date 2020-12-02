@@ -30,8 +30,12 @@
             </p>
             <?= (Session::is_admin() ? '<label for="imput_admin">Admin</label><br/><input type="checkbox" name="admin" value="1" id="imput_admin">' : "")?>
             <p>
-                <input type="submit" value="<?= $create ? "S'inscrire" : "Mettre à jour"?>" />
+                <input type="submit" value="<?= $create ? "S'inscrire" : "Mettre à jour" ?>" />
+
             </p>
+              <p>
+                  Vous êtes déjà inscrit ? <a href="index.php?action=connect&controller=utilisateur">Connectez-vous ici</a> !
+              </p>
           </fieldset>
         </form>
     </body>
