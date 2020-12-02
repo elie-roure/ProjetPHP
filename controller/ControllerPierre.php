@@ -45,7 +45,7 @@ class ControllerPierre {
     
     public static function created() {
         $data = array(
-            
+            "idPierre" => "",
             "nom" => $_GET["nom"],
             "prix" => $_GET["prix"],
             "poids" => $_GET["poids"],
@@ -114,7 +114,7 @@ class ControllerPierre {
     public static function delete() {
 
         $tab_p = ModelPierre::selectAll();     //appel au modèle pour gerer la BD
-        $idPierre = $_GET["idPierre"];
+        $idPierre = $_GET["idpierre"];
         $p = ModelPierre::select($idPierre);
         if ($p == null) {
             $pagetitle = 'Erreur produit';
