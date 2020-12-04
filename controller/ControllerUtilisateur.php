@@ -119,9 +119,9 @@ class ControllerUtilisateur {
                     'nom' => $_POST["Nom"],
                     'prenom' => $_POST["Prenom"],
                     'mdp' => Security::hacher($_POST['mdp']),
+                    'admin' => "",
                     'email' => $_POST["email"],
-                    'nonce' => Security::generateRandomHex(),
-                    'admin' => ""    
+                    'nonce' => Security::generateRandomHex()
                     );
                 if (isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()){
                     $data["admin"] = 1;
