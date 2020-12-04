@@ -23,10 +23,10 @@ foreach ($tab_p as $p){
 
 
 
-<?php
 
-echo '<br><a class="addP" href="index.php?action=create" class="ajout"> Vous souhaiter mettre une pierre en vente ? </a>';
-?>
+
+    <?= Session::is_admin() ? '<br><a class="addP" href="index.php?action=create" class="ajout"> Vous souhaiter mettre une pierre en vente ? </a>' : "" ?>
+
         
 
 
