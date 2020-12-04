@@ -116,23 +116,6 @@
             
         } 
         
-        public function updateNonce($nonce){
-            try {
-                $sql = "UPDATE Utilisateur SET nonce = :nonce WHERE login = :login";
-                $req_prep = Model::$pdo->prepare($sql);
-                $values = array (
-                    "nonce" => $nonce,
-                    "login" => $this->getLogin()
-                );
-                $req_prep->execute($values);
-                $this->setNonce($nonce);
-            } catch (Exception $ex) {
-                echo $ex->getMessage();
-            }
-        }
-
-
-        
     }
 	
 

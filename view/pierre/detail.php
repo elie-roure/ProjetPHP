@@ -6,11 +6,10 @@
                         "<li class> Poids : "  . htmlspecialchars($p->getPoids()) . "</li>" .
                         "<li class> Volume : "  . htmlspecialchars($p->getVolume()) . "</li>" .
                         "<li class> Provenance : "  . htmlspecialchars($p->getPaysProvenance()) . "</li>".
-                        "<p> Cette pierre  est au prix de <strong>" . htmlspecialchars($p->getPrix()) . "</strong>.</p>" .
-
-                '<br><a href = "index.php?action=update&controller=pierre&idpierre=' . rawurlencode($p->getIdPierre()) . '"> Mettre à jour le produit </a>' .
-                '<br><a href = "index.php?action=delete&controller=pierre&idpierre=' . rawurlencode($p->getIdPierre()) . '"> Supprimer le produit </a></div>';
-                
-             
-
+                        "<p> Cette pierre  est au prix de <strong>" . htmlspecialchars($p->getPrix()) . "</strong>.</p>";
+              
+                if (Session::is_admin()){
+                    echo '<br><a href = "index.php?action=update&controller=pierre&idpierre=' . rawurlencode($p->getIdPierre()) . '"> Mettre à jour le produit </a>' .
+                         '<br><a href = "index.php?action=delete&controller=pierre&idpierre=' . rawurlencode($p->getIdPierre()) . '"> Supprimer le produit </a></div>';
+                }
 ?>

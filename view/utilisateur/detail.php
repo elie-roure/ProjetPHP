@@ -14,7 +14,8 @@
         "Profil de " . htmlspecialchars($login_label) . " : ".'<br><ul>
             <li> Login : ' . htmlspecialchars($v->getLogin()) . '</li>
             <li> Nom : ' . htmlspecialchars($v->getNom()) . '</li>
-            <li> Prénom : ' . htmlspecialchars($v->getPrenom()) . ' </li></ul><br>';
+            <li> Prénom : ' . htmlspecialchars($v->getPrenom()) . ' </li>
+            <li> Mail : ' . htmlspecialchars($v->getEmail()) . '</li></ul><br>';
 
             ?>
         <?= (Session::is_user($login_label) || Session::is_admin() ? $update . " " . $delete : "" ) ?>

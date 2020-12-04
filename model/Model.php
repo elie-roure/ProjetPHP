@@ -106,8 +106,8 @@ class Model {
     }
 
         public static function save($data) {
-            $table_name = static::$object;
-            $sql = "INSERT INTO " . ucfirst($table_name) . " VALUES(";
+            $table_name = ucfirst(static::$object);
+            $sql = "INSERT INTO " . $table_name . " VALUES(";
             foreach($data as $cle => $valeur){
                 $sql = $sql.":$cle,";
             }

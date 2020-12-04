@@ -88,7 +88,8 @@ class ControllerUtilisateur {
                         'primary' => $_POST["login"],
                         'nom' => $_POST["Nom"],
                         'prenom' => $_POST["Prenom"],
-                        'mdp' => Security::hacher($_POST['mdp'])
+                        'mdp' => Security::hacher($_POST['mdp']),
+                        'email' => $_POST["email"]
                         );
                     if(isset($_POST["admin"]) && $_POST["admin"] == 1 && Session::is_admin()) {
                         $data["admin"] = 1;
@@ -188,7 +189,11 @@ class ControllerUtilisateur {
        public static function validate(){
            if (ModelUtilisateur::loginExist($_GET["login"]) && ModelUtilisateur::select($_GET["login"])->getNonce() == $_GET["nonce"]){
                $v = ModelUtilisateur::select($_GET["login"]);
-               $v->updateNonce("NULL"); 
+               $data = array (
+                   'primary' => $_POST["login"],
+                   'nonce' => "NULL",
+               );
+               ModelUtilisateur::update($data);
                $controller = "utilisateur";
                $view = "validated";
                $pagetitle = "Validation compte";
