@@ -1,6 +1,4 @@
-<html>
-    <body>
-        <p>Votre utilisateur a bien été mise à jour !</p>
-        <?php require_once "list.php"?>
-    </body>
-</html>
+
+<p>Votre utilisateur a bien été mise à jour !</p>
+<?php require_once "list.php" ?>
+    

@@ -1,5 +1,3 @@
-<html>
-    <body>
-        <?php require_once "detail.php"?>
-    </body>
-</html>
+
+<?php require_once "detail.php"; ?>
+    

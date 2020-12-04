@@ -1,6 +1,4 @@
-<html>
-    <body>
-        <p>Votre compte n'a pas été validé</p>
-        <?php require_once"detail.php";?>
-    </body>
-</html>
+
+<p>Votre compte a bien été enregistré, pensez à confirmer votre inscription depuis le mail qui vous a été envoyé. </p>
+<?php require_once"detail.php"; ?>
+    
