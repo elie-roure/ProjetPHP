@@ -35,6 +35,12 @@ class ControllerUtilisateur {
                 $login = $_GET["login"];
                 try {
                     ModelUtilisateur::delete($login);
+                    if ($login == $_SESSION["login"]){
+                        session_destroy();
+                        session_unset();
+                        setcookie(session_name(),'',time()-1);
+                        header("Location: index.php?disconnected");
+                    }
                     $controller = 'utilisateur';
                     $view = 'deleted';
                     $tab_v = ModelUtilisateur::selectAll();
@@ -95,7 +101,7 @@ class ControllerUtilisateur {
                         $data["admin"] = 1;
                     }
                     ModelUtilisateur::update($data);
-                    $tab_v = ModelUtilisateur::selectAll();
+                    $v = ModelUtilisateur::select($_POST["login"]);
                     $controller = 'utilisateur';
                     $pagetitle = 'Utilisateur mise à jour';
                     $view = 'updated';
