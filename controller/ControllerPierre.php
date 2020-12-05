@@ -154,6 +154,12 @@ class ControllerPierre {
     }
     
     
+    public static function ajouterPanier(){
+        $panier = unserialize($_COOKIE["panier"]);
+        array_push($panier,$_GET["idpierre"]);
+    }
+    
+    
     
     
 }
