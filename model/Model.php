@@ -83,13 +83,13 @@ class Model {
     }
 
     public static function update($data){
-         $table_name = static::$object;
+         $table_name = ucfirst(static::$object);
          $primary_key = static::$primary;
-         $sql = "UPDATE " . ucfirst($table_name) ." SET";
+         $sql = "UPDATE " . $table_name ." SET";
          foreach ($data as $cle => $valeur){
              if ($cle != "primary"){
              $sql = $sql." $cle =:$cle,";
-         }
+             }
          }
         try{
             $sql = rtrim($sql, ",");

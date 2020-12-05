@@ -154,6 +154,57 @@ class ControllerPierre {
     }
     
     
+    public static function ajouterPanier(){
+        $panier = unserialize($_COOKIE["panier"]);
+        if (!in_array($_GET['idpierre'], $panier)){
+            array_push($panier,$_GET["idpierre"]);
+            setcookie("panier", serialize($panier), time()+3600);
+            $p = ModelPierre::select($_GET["idpierre"]);
+            $_SESSION["prixPanier"] = $_SESSION["prixPanier"] + $p->getPrix();
+            $controller = ('pierre');
+            $view = 'ajoutPanier';
+            $pagetitle = 'Ajout de produit au panier';
+            require (File::build_path(array("view", "view.php")));
+        }
+        else {
+            $controller = ('pierre');
+            $view = 'problemePanier';
+            $pagetitle = 'Panier';
+            require (File::build_path(array("view", "view.php")));
+        }
+    }
+    
+    public static function supprimerPanier(){
+        $panier = unserialize($_COOKIE["panier"]);
+        unset($panier[array_search($_GET["idpierre"], $panier)]);
+        sort($panier);
+        setcookie("panier", serialize($panier), time()+3600);
+        $p = ModelPierre::select($_GET["idpierre"]);
+        $_SESSION["prixPanier"] = $_SESSION["prixPanier"] - $p->getPrix();
+        $controller = ('pierre');
+        $view = 'supprimerPanier';
+        $pagetitle = 'Supression de produit du panier';
+        require (File::build_path(array("view", "view.php")));
+    }
+    
+    public static function afficherPanier(){
+        $controller = ('pierre');
+        $view = 'panier';
+        $pagetitle = 'Votre panier';
+        require (File::build_path(array("view", "view.php")));
+    }
+    
+    public static function viderPanier(){
+        $panier = array();
+        setcookie ("panier", serialize($panier), time()+3600);
+        $_SESSION["prixPanier"] = 0;
+        $controller = ('pierre');
+        $view = 'viderPanier';
+        $pagetitle = 'Votre panier';
+        require (File::build_path(array("view", "view.php")));
+    }
+    
+    
     
     
 }

@@ -1,4 +1,3 @@
 
 <p>Votre utilisateur a bien été mise à jour !</p>
-<?php require_once "list.php" ?>
-    
+<?php require_once "list.php";
