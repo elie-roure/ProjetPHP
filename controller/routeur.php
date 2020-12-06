@@ -3,6 +3,7 @@
 
 require_once File::build_path(array('controller','ControllerPierre.php'));
 require_once File::build_path(array('controller','ControllerUtilisateur.php'));
+require_once File::build_path(array('controller','ControllerCommande.php'));
 // On recupère l'action passée dans l'URL
 if (isset($_GET['action'])){
     $action = $_GET["action"];

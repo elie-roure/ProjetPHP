@@ -15,7 +15,9 @@ echo
             <li> Nom : ' . htmlspecialchars($v->getNom()) . '</li>
             <li> Prénom : ' . htmlspecialchars($v->getPrenom()) . ' </li>
             <li> Mail : ' . htmlspecialchars($v->getEmail()) . '</li></ul><br>';
+
 ?>
+<?= (isset($_SESSION['login']) && Session::is_user($v->getLogin()) || Session::is_admin() ? '<p><a href="index.php?controller=commande&action=readAll">Vos commandes</a></p></br>' : "")?>
 <?= (Session::is_user($login_label) || Session::is_admin() ? $update . "<br> " . $delete : "" ) ?>
 
 

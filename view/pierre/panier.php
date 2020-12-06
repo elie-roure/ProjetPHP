@@ -21,6 +21,6 @@ if (!isset($_COOKIE["panier"]) || empty($_COOKIE["panier"])) {
     }
     
     echo '<h3>Total : ' . $_SESSION['prixPanier'] . '€</h3><br/>'; 
-    
+    echo '<h3><a href="index.php?controller=commande&action=validerCommande">Valider la commande</a></h3></br>';
     echo '<p><a href="index.php?controller=pierre&action=viderPanier">Vider le panier</a></p>';
 }

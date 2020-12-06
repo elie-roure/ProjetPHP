@@ -26,11 +26,31 @@ class ModelPierre extends Model{
         }
     }
     
+    public static function estAchete($idPierre){
+        try {
+            $sql = "SELECT estAchete FROM Pierre WHERE idPierre=:idPierre";
+            $req_prep = Model::$pdo->prepare($sql);
+            $value = array (
+                'idPierre' => $idPierre,
+            );
+            $req_prep->execute($value);
+            $estAchete = $req_prep->fetchAll();
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+            if ($estAchete[0][0]){
+                return true;
+            }
+            else {
+                return false;
+            }
+            
+    }
+    
     function getIdPierre() {
         return $this->idPierre;
     }
 
-    
 
     function getNom() {
         return $this->nom;
