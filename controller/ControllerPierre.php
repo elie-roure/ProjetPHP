@@ -156,7 +156,7 @@ class ControllerPierre {
     
     public static function ajouterPanier(){
         $panier = unserialize($_COOKIE["panier"]);
-        if (!in_array($_GET['idpierre'], $panier)){
+        if (!in_array($_GET['idpierre'], $panier) && !ModelPierre::estAchete($_GET["idpierre"])){
             array_push($panier,$_GET["idpierre"]);
             setcookie("panier", serialize($panier), time()+3600);
             $p = ModelPierre::select($_GET["idpierre"]);
