@@ -1,4 +1,4 @@
-
+<div class="precision">
 <?php
 
 $login_label = $v->getLogin();
@@ -15,8 +15,10 @@ echo
             <li> Nom : ' . htmlspecialchars($v->getNom()) . '</li>
             <li> Prénom : ' . htmlspecialchars($v->getPrenom()) . ' </li>
             <li> Mail : ' . htmlspecialchars($v->getEmail()) . '</li></ul><br>';
-?>
-<?= (Session::is_user($login_label) || Session::is_admin() ? $update . "<br> " . $delete : "" ) ?>
 
+?>
+<?= (isset($_SESSION['login']) && Session::is_user($v->getLogin()) ? '<p><a href="index.php?controller=commande&action=readAll">Vos commandes</a></p></br>' : "")?>
+<?= (Session::is_user($login_label) || Session::is_admin() ? $update . "<br> " . $delete : "" ) ?>
+</div>
 
 
