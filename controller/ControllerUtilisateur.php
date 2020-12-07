@@ -231,7 +231,7 @@ class ControllerUtilisateur {
             $v = ModelUtilisateur::select($_GET["login"]);
             $data = array(
                 'primary' => $_GET["login"],
-                'nonce' => "NULL",
+                'nonce' => NULL,
             );
             ModelUtilisateur::update($data);
             $controller = "utilisateur";
