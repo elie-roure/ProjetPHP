@@ -1,3 +1,4 @@
+<div class="precision">
 <?php
 foreach ($tab as $value){
     $d = $value->getIdPierre();
@@ -15,3 +16,5 @@ foreach ($tab as $value){
 }
 
     echo '<h3>Prix Total : '. ModelCommande::getPrixTotal($data) .' </h3>';
+    ?>
+</div>

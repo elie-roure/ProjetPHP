@@ -49,6 +49,7 @@ class ControllerCommande {
             $controller = 'utilisateur';
             $view = 'connect';
             $pagetitle='Connectez-vous';
+            $falsemdp=false;
             require File::build_path(array('view','view.php'));
         }
     }

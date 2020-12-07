@@ -10,11 +10,11 @@
         </p>
         <p>
             <label for="password_id">Mot de passe</label> :
-            <input type="password" minlength="6" name="mdp" id="password_id" <?= ($create ? "required" : "") ?>/>
+            <input type="password" minlength="6" name="mdp" id="password_id" required="Veuillez remplir ce champs"/>
         </p>
         <p>
             <label for="password_id_confirm">Confirmation mot de passe</label> :
-            <input type="password" minlength="6" name="mdpconfirm" id="password_id_confirm" <?= ($create ? "required" : "") ?>/>
+            <input type="password" minlength="6" name="mdpconfirm" id="password_id_confirm" required='Veuillez remplir ce champs'/>
         </p>
         <p>
             <label for="Nom_id">Nom</label> :

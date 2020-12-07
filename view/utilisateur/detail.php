@@ -1,4 +1,4 @@
-
+<div class="precision">
 <?php
 
 $login_label = $v->getLogin();
@@ -17,8 +17,8 @@ echo
             <li> Mail : ' . htmlspecialchars($v->getEmail()) . '</li></ul><br>';
 
 ?>
-<?= (isset($_SESSION['login']) && Session::is_user($v->getLogin()) || Session::is_admin() ? '<p><a href="index.php?controller=commande&action=readAll">Vos commandes</a></p></br>' : "")?>
+<?= (isset($_SESSION['login']) && Session::is_user($v->getLogin()) ? '<p><a href="index.php?controller=commande&action=readAll">Vos commandes</a></p></br>' : "")?>
 <?= (Session::is_user($login_label) || Session::is_admin() ? $update . "<br> " . $delete : "" ) ?>
-
+</div>
 
 
