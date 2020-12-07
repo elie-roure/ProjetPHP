@@ -6,12 +6,18 @@
 
 
             <file>file:/C:/xampp/htdocs/ProjetPHP/model/ModelUtilisateur.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/notvalidated.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/controller/routeur.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/controller/ControllerCommande.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/detail.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/lib/File.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/updated.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/viderPanier.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/model/ModelCommande.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/connect.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/problemePanier.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/model/ModelPierre.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/commande/list.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/supprimerPanier.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/controller/ControllerUtilisateur.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/updated.php</file>
@@ -19,12 +25,14 @@
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/ajoutPanier.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/wrongco.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/update.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/commande/read.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/panier.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/list.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/validated.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/lib/Security.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/config/Conf.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/phpinfo.php.txt</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/commande/recapitulatif.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/delete.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/list.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/error.php</file>
@@ -32,13 +40,14 @@
             <file>file:/C:/xampp/htdocs/ProjetPHP/index.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/view.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/detail.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/commande/detail.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/created.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/deleted.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/created.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/pierre/error.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetPHP/view/commande/panierVide.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/model/Model.php</file>
             <file>file:/C:/xampp/htdocs/ProjetPHP/view/utilisateur/mdp.php</file>
-
         </group>
     </open-files>
 </project-private>
