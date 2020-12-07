@@ -230,7 +230,7 @@ class ControllerUtilisateur {
         if (ModelUtilisateur::loginExist($_GET["login"]) && ModelUtilisateur::select($_GET["login"])->getNonce() == $_GET["nonce"]) {
             $v = ModelUtilisateur::select($_GET["login"]);
             $data = array(
-                'primary' => $_POST["login"],
+                'primary' => $_GET["login"],
                 'nonce' => "NULL",
             );
             ModelUtilisateur::update($data);
