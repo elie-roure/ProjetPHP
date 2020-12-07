@@ -135,7 +135,7 @@ class ControllerUtilisateur {
                 ModelUtilisateur::save($data);
                 $v =  ModelUtilisateur::select($_POST["login"]);
                 $_SESSION["login"] = $v->getlogin();
-                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"http://localhost/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $v->getLogin() . "&nonce=" . $v->getNonce() ."\">lien</a></p>";
+                $mail = "<h2>Validation du compte<h2/><br/><br/><p>Cliquer sur le lien pour valider votre compte : <a href= \"https://webinfo.iutmontp.univ-montp2.fr/~crosg/eCommerce/ProjetPHP/index.php?controller=utilisateur&action=validate&login=" . $v->getLogin() . "&nonce=" . $v->getNonce() ."\">lien</a></p>";
                 mail($v->getEmail(), 'Validation Email pour StoneZone', $mail);
                 $pagetitle = 'Profil';
                 $controller = 'utilisateur';
